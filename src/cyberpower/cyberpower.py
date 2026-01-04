@@ -23,10 +23,13 @@ class CyberPower:
     def __init__(self, host: str, user: str, password: Optional[str] = None):
         self.host = host
         self.user = user
-        self.password = (
-            password or keyring.get_password(self.host, self.user) or getpass.getpass()
-        )
 
+        try:
+            kr_pass = keyring.get_password(self.host, self.user)
+        except keyring.errors.NoKeyringError:
+            kr_pass = None
+
+        self.password = password or kr_pass or getpass.getpass()
         self.transport: Optional[Transport] = None
         self.channel: Optional[Channel] = None
 
