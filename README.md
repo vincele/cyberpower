@@ -1,8 +1,12 @@
 cyberpower
 ==========
-A library and tool to control a
-[CyberPower PDU41001](https://www.cyberpowersystems.com/product/pdu/switched/pdu41001/)
-via SSH. Tested on ePDU Firmware Version 1.2.4.
+A library and tool to control
+[CyberPower PDUs](https://www.cyberpowersystems.com/products/pdus/)
+via SSH.
+
+Tested on:
+* [PDU41001](https://www.cyberpowersystems.com/product/pdu/switched/pdu41001/), ePDU Firmware Version 1.2.4.
+* [PDU81005](https://www.cyberpowersystems.com/product/pdus/switched-mbo/pdu81005/), ePDU Firmware Version 1.2.4.
 
 Why?
 * Logging into the web GUI is a pain
