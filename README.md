@@ -27,7 +27,7 @@ CLI usage
 usage: cyberpower [-h] [--user USER] [--verbose] [--version]
                   host {on,off,cycle,status,shell} [outlet]
 
-Control a CyberPower PDU41001
+Control a CyberPower switched PDU
 
 positional arguments:
   host                  the hostname of the PDU

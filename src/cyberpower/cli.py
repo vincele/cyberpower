@@ -80,7 +80,7 @@ def do_power_control(args: argparse.Namespace) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Control a CyberPower PDU41001",
+        description="Control a CyberPower switched PDU",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument("host", help="the hostname of the PDU")
