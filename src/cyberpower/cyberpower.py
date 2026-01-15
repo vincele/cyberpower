@@ -19,6 +19,7 @@ class CyberPower:
     # CyberPower will disconnect if it receives a keepalive
     KEEPALIVE_INTERVAL = 0
     NUM_OUTLETS = 8
+    RE_STATUS_LINE = re.compile(r"(?P<index>\d)\s+(?P<name>\S+)\s+(?P<status>(Off|On))(?:\s+[\d.]+\s+\d+)?$")
 
     def __init__(self, host: str, user: str, password: Optional[str] = None):
         self.host = host
@@ -122,9 +123,7 @@ class CyberPower:
         response = self.run("oltsta show")
         status = []
         for line in response.splitlines():
-            if m := re.match(
-                r"(?P<index>\d)\s+(?P<name>\S+)\s+(?P<status>(Off|On))$", line.strip()
-            ):
+            if m := self.RE_STATUS_LINE.match(line.strip()):
                 status.append(m.groupdict())
         return sorted(status, key=lambda o: o["index"])
 
